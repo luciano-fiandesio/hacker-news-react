@@ -2,3 +2,5 @@ An excellent resource for learning React is [Robin Wieruch](https://twitter.com/
 
 This repo contains the code for the application used in the book for explaining React concepts.
 The app is a simple [Hacker News](https://news.ycombinator.com/) clone, that uses the actual HN's [API](https://hn.algolia.com/api) to fetch real data.
+
+Each commit is named after a book's chapter, in order to follow the progression of the book.
