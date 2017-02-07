@@ -70,71 +70,51 @@ class App extends Component {
   }
 }
 
-class Search extends Component {
-  render() {
-    const {value, onChange, children} = this.props;
-    return (
+const Search = ({value, onChange, children}) =>  {
+  return (
       <form>
-          {children}<input type="text" 
-                 onChange={onChange}
-                 value={value}
-                 />
-        </form>  
-
-    );
-  }
-
+        {children}<input type="text" 
+               onChange={onChange}
+               value={value}
+               />
+      </form>  
+  );
 }
 
-class Table extends Component {
+const Table = ({list, pattern, onDismiss}) =>  {
 
-  render() {
-    const { list, pattern, onDismiss } = this.props;
-    return (
-      <div>
-        { list.filter(isSearched(pattern)).map(item => 
-            
-            <div key={item.objectID}> 
-              <span><a href={item.url}>{item.title}</a></span>
-              <span>{item.author}</span>
-              <span>{item.num_comments}</span>
-              <span>{item.points}</span>
-              <span>
-                <Button onClick={() => onDismiss(item.objectID)}>
-                Dismiss
-                </Button>
-              </span>
-            </div> 
-        )}
+  return (
+    <div>
+      { list.filter(isSearched(pattern)).map(item => 
+          
+          <div key={item.objectID}> 
+            <span><a href={item.url}>{item.title}</a></span>
+            <span>{item.author}</span>
+            <span>{item.num_comments}</span>
+            <span>{item.points}</span>
+            <span>
+              <Button onClick={() => onDismiss(item.objectID)}>
+              Dismiss
+              </Button>
+            </span>
+          </div> 
+      )}
 
-      </div>
-    );
-
-  }
-
+    </div>
+  );
 }
 
-class Button extends Component {
+const Button = ({onClick, className = '', children}) =>  {
 
-  render() {
-    const {
-      onClick,
-      className = '',
-      children
-    } = this.props;
-
-    return (
-      <button 
-        onClick={onClick}
-        className={className}
-        type='button'
-      >
-      {children}
-      </button>
-    );
-
-  }
-
+  return (
+    <button 
+      onClick={onClick}
+      className={className}
+      type='button'
+    >
+    {children}
+    </button>
+  );
 
 }
 
